@@ -19,6 +19,15 @@ COPY video_streaming.py /home/
 # Changing the permissions of the video_streaming.py script to make it executable
 RUN chmod +x /home/video_streaming.py
 
+# Copying the Web_server script into the docker container
+COPY Web_Server.py /home/
+
+# Making the web server script executable
+RUN chmod +x /home/Web_Server.py
+
+# Informing Docker that the container is listening on port 8000
+EXPOSE 8000
+
 # Copying the sample video into the docker image
 COPY video /home/video
 
